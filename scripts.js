@@ -1,9 +1,9 @@
-const API_URL = "https://crudcrud.com/api/8ed122cc9ba14c27bf80b7a392c5da2c";
+const API_URL = "https://crudcrud.com/api/8ed122cc9ba14c27bf80b7a392c5da2c/clientes";
 
 const form = document.getElementById("clienteForm");
 const lista = document.getElementById("clientesLista");
 
-// Cadastrar cliente
+// Função para cadastrar cliente (POST)
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
@@ -26,7 +26,7 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
-// Listar clientes
+// Função para listar clientes (GET)
 async function carregarClientes() {
   lista.innerHTML = "";
 
@@ -51,7 +51,7 @@ async function carregarClientes() {
   }
 }
 
-// Excluir cliente
+// Função para excluir cliente (DELETE)
 async function excluirCliente(id) {
   try {
     await fetch(`${API_URL}/${id}`, {
@@ -63,5 +63,5 @@ async function excluirCliente(id) {
   }
 }
 
-// Carregar clientes ao iniciar
+// Carrega lista assim que a página abre
 carregarClientes();
